@@ -32,27 +32,17 @@ function gameRound(playerSelection, computerSelection) {
     }
 }
 
-//Declaring the game whoch is 5 rounds
-function game() {
-    //Looping 5 times
-    for (let i = 0; i < 5; i++) {
-        let check = false;
-        //Doing input check loop to make sure the user inputs a correct argument
-        do {
-            userInput = prompt("Enter your choice of rock, paper, or scissors:");
-            userInput = userInput.toLowerCase();
-            if (userInput == 'paper' || userInput == 'rock' || userInput == 'scissors') {
-                check = true;
-            }
-            else {
-                console.log("Please enter either \"rock\", \"paper\", or \"scissors\".");
-            }
-        }
-        while (check == false)
+const rockButton = document.querySelector('#rock_button');
+rockButton.addEventListener('click', () => {
+    console.log(gameRound("rock", getComputerChoice()));
+  });
 
-        //Using the gameRound function with the validated user input and getComputerChoice() function
-        console.log(gameRound(userInput, getComputerChoice()));
-    }
-}
+const paperButton = document.querySelector('#paper_button');
+paperButton.addEventListener('click', () => {
+    console.log(gameRound("paper", getComputerChoice()));
+  });
 
-game();
+const scissorsButton = document.querySelector('#scissors_button');
+scissorsButton.addEventListener('click', () => {
+    console.log(gameRound("scissors", getComputerChoice()));
+  });
